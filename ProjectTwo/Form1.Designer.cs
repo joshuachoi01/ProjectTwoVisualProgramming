@@ -103,6 +103,7 @@
             this.tbInput.Name = "tbInput";
             this.tbInput.Size = new System.Drawing.Size(280, 26);
             this.tbInput.TabIndex = 7;
+            this.tbInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbInput_KeyDown);
             // 
             // Form1
             // 

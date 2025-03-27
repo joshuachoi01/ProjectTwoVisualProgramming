@@ -13,11 +13,12 @@ namespace ProjectTwo
 {
     public partial class Form1 : Form
     {
+        //lists instead of arrays for easier use
         List<string> itemNames = new List<string>();
         List<int> itemQuantities = new List<int>();
         List<string> itemCategories = new List<string>();
 
-        string filePath = "grocery.txt";
+        string filePath = "grocery.txt"; //name of file
 
         public Form1()
         {
@@ -70,7 +71,7 @@ namespace ProjectTwo
             }
             else
             {
-                MessageBox.Show("Please enter item as: Name, Quantity, Category");
+                MessageBox.Show("Please enter item as: Name, Quantity, Category"); //Error Message
             }
         }
 
@@ -106,6 +107,7 @@ namespace ProjectTwo
                 itemNames.Clear();
                 itemQuantities.Clear();
                 itemCategories.Clear();
+                lstItems.Items.Clear();
                 LoadItemsFromFile();
             }
             else
@@ -165,6 +167,16 @@ namespace ProjectTwo
         private void cmbItems_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void tbInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnAdd.PerformClick(); // triggers the Add Item button click
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
         }
     }
 }
